@@ -1,1 +1,1 @@
-src=https://simsimi.info/api
+src="https://simsimi.info/api"
