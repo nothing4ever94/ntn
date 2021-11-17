@@ -1,2 +1,2 @@
-https://simsimi.info/api/?lc=vn&text=
+URL = https://simsimi.info/api/?lc=vn&text=
 	
