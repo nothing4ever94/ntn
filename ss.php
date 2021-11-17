@@ -1,1 +1,1 @@
-https://simsimi.info/api
+GET : https://simsimi.info/api
