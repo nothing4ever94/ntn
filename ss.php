@@ -1,1 +1,1 @@
-URL="https://simsimi.info/api/"
+$url = 'https://simsimi.info/api/'
