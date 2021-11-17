@@ -1,1 +1,10 @@
-
+import requests
+SimsimiKey = "YOUR SIMSIMI API TOKEN"
+inputtext = input("Input: ")
+URL = "https://simsimi.info/api/?text={inputtext}&lc=vn"
+r = requests.get(url = URL)
+data = r.json()
+if data['result'] == 509:
+	print(data['msg'])
+else:
+	print(data['response'])
