@@ -1,0 +1,198 @@
+
+
+<!DOCTYPE html>
+<html lang="vi">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="content-type" content="text/html; UTF-8" />
+		<meta http-equiv="content-language" content="vi" />
+		<meta http-equiv="revisit-after" content="1 days" />
+		<!-- SEO -->
+		<meta name="description" content="simi hệ thống chát tự động, dạy dỗ simi, dạy simi học, simi trả lời cmt fb, simi trả lời inbox fb" />
+		<meta name="author" content="ManhG" />
+		<meta name="copyright" content="Lê Anh Trường" />
+		<meta name="robots" content="index, follow" />
+		<meta property="fb:admins" content="https://www.facebook.com/real.leanhtruong" />
+		<meta property="og:url" content="https://chat.simsimi.info/" />
+		<meta property="og:type" content="website" />
+		<meta property="og:description" content="simi hệ thống chát tự động, dạy dỗ simi, dạy simi học, simi trả lời cmt fb, simi trả lời inbox fb" />
+		<meta property="og:locale" content="vi_VN" />
+		<meta property="article:author" content="Lê Anhn Trường" />
+		<meta property="article:publisher" content="https://www.facebook.com/real.leanhtruong" />
+		<link type="image/x-icon" href="https://s3.amazonaws.com/capp.simsimi.com/images/makeup/6.png" rel="shortcut icon" />
+		<title>Chat Simsimi Online</title>
+		<link href="https://chat.simsimi.info/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	</head>
+<style>
+	body {
+		padding-top: 20px;
+		background-image: url(/icon/imager_2_6498_700.jpg);
+		background-position: top center;
+		background-color: #fff;
+		background-size: cover;
+		background-size: fixed;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+
+	}
+	.sumichat-bubble {
+		background-color: white;
+		border: 1px solid;
+		border-radius: 5px;
+		padding: 5px 10px;
+		margin-bottom: 2px;
+		display: inline-block;
+		max-width: 100%;
+		position: relative;
+	}
+	.sumichat-flag-icon {
+		content: '';
+		right: 10px;
+		top: -5px;
+		float: right;
+		position: fixed;
+		font-size: 1.5em;
+		background-image: url(/icon/united-states.png);
+		text-align: right;
+		cursor: pointer;
+		margin-top: 12px;
+		height: 32px;
+		width: 32px;
+	}
+	#main .list-group-item img {
+		height: 32px;
+		width: 32px;
+		max-width: 100%;
+	}
+	.chatspace {
+		max-height: 500px;
+		overflow-y: auto;
+	}
+	/* Scrollbar Styling */
+	::-webkit-scrollbar {
+		width: 6px;
+	}
+	::-webkit-scrollbar-track {
+		background-color: #ebebeb;
+		-webkit-border-radius: 6px;
+		border-radius: 6px;
+	}
+	::-webkit-scrollbar-thumb {
+		background-color: #6d6d6d; 
+		-webkit-border-radius: 6px;
+		border-radius: 6px;
+	}
+</style>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">
+					<div class="panel panel-primary">
+						<div class="panel-heading .bg-success">
+							<h4>SimSimi</h4>
+						</div>
+						<div class="panel-body">
+							<p><input type="text"  value="" id="hoi" onkeydown="if(event.keyCode == 13) posts();" class="form-control" placeholder="Hỏi em cái gì đi..."/></p>
+							<p><button class="btn btn-primary" type="button" id="simi" onclick="posts();"><i class="fa fa-exchange"></i> Hỏi</button></p>
+
+							<div class="list-group" id="messages">
+								<div class="alert alert-info" role="alert">
+								<b>Simi trả lời màu <font color="#000000">ĐEN</font> là chưa được dạy. <br/>
+								Simi trả lời màu <font color="#c300ff">Tím</font> là đã được dạy.</b>
+								</div>
+							</div>
+						
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="panel panel-primary">
+						<div class="panel-heading bg-light-blue">
+							<h4>Dạy Sim Nói</h4>
+						</div>
+						<div class="panel-body">
+							<p>Hỏi Sim : <input type="text" name="ask" value="" id="ask"  class="form-control" placeholder="Câu hỏi của bạn..."/></p>
+							<p>Đáp: <input type="text" name="ans" value="" id="ans" class="form-control" placeholder="Câu trả lời bạn muốn Sim nói..."/></p>
+							<button type="button"  id="simsimi"  class="btn btn-primary" onclick="post();"><i class="fa fa-exchange"></i> Dạy Sim</button>
+							<p>
+								<div id="star" style="display: none;">
+									<div class="alert alert-info" id="message">
+										
+									</div>
+								</div>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /row -->
+<div class="panel panel-primary">
+                    <div class="panel-heading bg-light-blue">
+                        <h4>Lưu Ý</h4>
+                    </div>
+
+                    <div class="panel-body">
+
+<ul>
+	<div class="fb-like" data-href="" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+	<div class="g-plusone" data-size="medium"></div>
+		<li>Nếu bạn cảm thấy các câu trả lời của simsimi không phù hợp hoặc không vừa ý với bạn . Hãy dạy simsimi câu hỏi và câu trả lời để được vừa ý bạn</li><br>
+		<li>Api Cho Nhà Phát Triển :  <a href="https://simsimi.info/"><b>Click Here</b></a></li><br>
+		<li>Góp Ý - Báo Lỗi Qua Facebook : <a href="https://www.facebook.com/real.leanhtruong"><b>Lê Anh Trường</b></a></li><br>
+		<li>Hãy ủng hộ Trang Web này bằng cách chia sẻ cho mọi người và bạn bè biết đến Trang Web này</li></br></br>
+     <li style="text-align: center; list-style: none;">
+			<a href="smsto:?body=Trang Chat này hay lắm "><img src="./icon/sms.png" alt="SMS"/></a> <a title="Đăng lên Google" target="_blank" href="https://www.google.com.vn/bookmarks/mark?op=add&bkmk=http://chat.simsimi.info/"> <img src="./icon/gg.png" alt="Google"/></a> <a target="_blank"href="http://link.apps.zing.vn/pro/view/conn/share?u=chat.simsimi.info"><img src="./icon/zm.png" alt="Zing"/></a> <a href="https://facebook.com/sharer/sharer.php?u=chat.simsimi.info/" target="_blank"><img src="./icon/fb.png" alt="Facebook"/></a> <a href="https://twitter.com/share?url=chat.simsimi.info/" target="_blank"><img src="./icon/tt.png" alt="Twitter"/></a> <a href="http://buzz.yahoo.com/buzz?targetUrl=chat.simsimi.info/"target="_blank"><img src="./icon/yh.png" alt="yahoo"/></a></br>
+			<b >Copyright @ 2021 by Lê Anh Trường</b>
+		</li>
+</ul>
+
+		</div>
+	</body>
+<script type="text/javascript">
+function log(msg) {
+	$('#message').html('');
+	$('#message').append(msg);
+	$('#message').fadeIn(999);
+}
+function post(){
+	asks = document.getElementById('ask').value;
+	anss = document.getElementById('ans').value;
+	document.getElementById("simsimi").disabled = true;
+	$("#simsimi").html('<i class="fa fa-refresh fa-spin"></i> Đang Tiến Hành');
+	$("#message").html("");
+	$('#star').show();
+	log('<i class="fa fa-spinner fa-spin"></i> Vui Lòng Đợi ... ')
+	$.post('post_sim.php', {
+	ask: asks,
+	type: "day",
+	ans: anss
+	}, function(data, status) {
+	log(data);
+	$("#simsimi").html('<i class="fa fa-exchange"></i> Dạy Sim');
+	document.getElementById("simsimi").disabled = false;
+	});
+
+}
+function posts(){
+	hois = document.getElementById('hoi').value;
+		document.getElementById("simi").disabled = true;
+			$("#simi").html('<i class="fa fa-refresh fa-spin"></i> Đang Tiến Hành');
+				$("#messages").html("");
+					$.post('post_sim.php', {
+						hoi: hois
+							}, function(data, status) {
+								$('#messages').html('');
+									 $("#hoi").val('');
+									 	$('<li class="list-group-item"><img src="http://i.imgur.com/pCnMY2j.gif" alt="»"/><font color="blue"><b>Bạn</b>: '+hois+'</li>').insertAfter($("#messages"));
+									 		$(' <li class="list-group-item"><img src="http://i.imgur.com/7eJfGH7.jpg" alt="»"/><font color="red"><b>Simi</b>:</font> '+data+'</li>').insertAfter($("#messages"));
+									 			$("#simi").html('<i class="fa fa-exchange"></i> Hỏi');
+									 				document.getElementById("simi").disabled = false;
+									 					});
+}
+</script>
+</html>
