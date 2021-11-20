@@ -22,13 +22,13 @@ body {
 
 @mixin setImage($a, $x) {
   --name: float-up-#{$a};
-  --duration: calc(20s * #{$a});
+  --duration: calc(5s * #{$a});
   left: #{$x}vw;
   z-index: -1 * $a;
 }
 
 img {
-  --duration: 40s;
+  --duration: 5s;
   --name: float-up-1;
   position: absolute;
   top: 0;
